@@ -2,7 +2,6 @@ namespace :count do
   desc 'Count all rb-files in project'
   task rb_files: :environment do
     a = Dir.glob('**/*.rb')
-    puts a
     puts "#{a.count} ruby-files in project"
   end
 
@@ -16,6 +15,5 @@ namespace :count do
       end
     end
     puts "#{x} strings in all ruby-files in project"
-
   end
 end
