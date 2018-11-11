@@ -5,6 +5,8 @@ html
       | GBKsenia
     = csrf_meta_tags
     = csp_meta_tag
+    script [src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"]
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
@@ -12,14 +14,14 @@ html
       .container
         = link_to home_path, class: 'navbar-brand'
           = image_tag 'logo.png', class: 'navbar-logo'
-        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
-        .collapse.navbar-collapse[id='navbarNav']
+        .collapse.navbar-collapse[id="navbar"]
           ul.navbar-nav
-            li.class.nav-item
+            li.nav-item
               = link_to 'Contacts', '/contacts', class: 'nav-link'
-      .container.main-container
-        = yield
-      footer.footer
-        .container
-          span Sticky footer content 💜
+    .container.main-container
+      = yield
+    footer.footer
+      .container
+        span Sticky footer content 💜
