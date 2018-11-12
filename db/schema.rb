@@ -28,13 +28,11 @@ ActiveRecord::Schema.define(version: 2018_11_11_201230) do
 
   create_table "marks", force: :cascade do |t|
     t.integer "mark"
-    t.bigint "user_id"
     t.bigint "post_id"
     t.boolean "visible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_marks_on_post_id"
-    t.index ["user_id"], name: "index_marks_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -63,6 +61,5 @@ ActiveRecord::Schema.define(version: 2018_11_11_201230) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "marks", "posts"
-  add_foreign_key "marks", "users"
   add_foreign_key "posts", "users"
 end
