@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_201230) do
+ActiveRecord::Schema.define(version: 2018_11_19_085315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2018_11_11_201230) do
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_posts_on_title", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "seos", force: :cascade do |t|
+    t.string "tagable_type"
+    t.bigint "tagable_id"
+    t.string "title"
+    t.string "description"
+    t.string "keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tagable_type", "tagable_id"], name: "index_seos_on_tagable_type_and_tagable_id"
   end
 
   create_table "users", force: :cascade do |t|
