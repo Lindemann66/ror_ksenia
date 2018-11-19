@@ -37,3 +37,24 @@ hash_comments = 200.times.map do
   }
 end
 Comment.create! hash_comments
+
+hash_seos = Post.all.each.map do |post|
+  {
+    title: post.title,
+    description: FFaker::HipsterIpsum.sentence,
+    keywords: FFaker::HipsterIpsum.words,
+    tagable_id: post.id,
+    tagable_type: Post
+ }
+end
+
+hash_seos << User.all.each.map do |user|
+  {
+    title: user.name,
+    description: FFaker::HipsterIpsum.sentence,
+    keywords: FFaker::HipsterIpsum.words,
+    tagable_id: user.id,
+    tagable_type: User
+ }
+end
+Seo.create! hash_seos
